@@ -8,7 +8,7 @@ use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Plugin implementation of the 'text_edtf' widget.
+ * Plugin implementation of the 'edtf_default' widget.
  *
  * Validates text values for compliance with EDTF 1.0, level 1.
  * http://www.loc.gov/standards/datetime/pre-submission.html.
@@ -16,14 +16,14 @@ use Drupal\Core\Form\FormStateInterface;
  * // TODO: maybe some day support level 2.
  *
  * @FieldWidget(
- *   id = "text_edtf",
+ *   id = "edtf_default",
  *   label = @Translation("Extended Date Time Format, Level 1"),
  *   field_types = {
- *     "string"
+ *     "edtf"
  *   }
  * )
  */
-class TextEDTFWidget extends WidgetBase {
+class EDTFDefaultWidget extends WidgetBase {
 
   /**
    * {@inheritdoc}
@@ -40,7 +40,7 @@ class TextEDTFWidget extends WidgetBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $description_string = $this->t(
-        'Negative dates, and the level 1 features unspecified dates, 
+        'Negative dates, and the level 1 features unspecified dates,
         extended years, and seasons
         are not supported with strict date checking.'
     );
@@ -93,9 +93,9 @@ class TextEDTFWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $element['value'] = $element + [
+    $element['edtf'] = $element + [
       '#type' => 'textfield',
-      '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
+      '#default_value' => isset($items[$delta]->edtf) ? $items[$delta]->edtf : NULL,
       '#placeholder' => $this
         ->getSetting('placeholder'),
       '#element_validate' => [

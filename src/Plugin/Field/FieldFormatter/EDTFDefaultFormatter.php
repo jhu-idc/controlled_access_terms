@@ -7,19 +7,19 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Plugin implementation of the 'TextEDTFHumanFormatter'.
+ * Plugin implementation of the 'EDTFDefaultFormatter'.
  *
  * Only supports EDTF through level 1.
  *
  * @FieldFormatter(
- *   id = "text_edtf_human",
- *   label = @Translation("EDTF (L1) for Humans"),
+ *   id = "edtf_default",
+ *   label = @Translation("EDTF (L1) field formatter"),
  *   field_types = {
- *     "string"
+ *     "edtf"
  *   }
  * )
  */
-class TextEDTFHumanFormatter extends FormatterBase {
+class EDTFDefaultFormatter extends FormatterBase {
 
   /**
    * Month/Season to text map.
@@ -158,7 +158,7 @@ class TextEDTFHumanFormatter extends FormatterBase {
       '#title' => t('Hemisphere Seasons'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('season_hemisphere'),
-      '#description' => t("Seasons don't have digit months so we map them 
+      '#description' => t("Seasons don't have digit months so we map them
                           to their respective equinox and solstice months.
                           Select a hemisphere to use for the mapping."),
       '#options' => [
@@ -187,24 +187,24 @@ class TextEDTFHumanFormatter extends FormatterBase {
 
     foreach ($items as $delta => $item) {
       // Interval.
-      list($begin, $end) = explode('/', $item->value);
+      $dates = explode('/', $item->edtf);
 
-      $formatted_begin = $this->formatDate($begin);
+      $formatted_begin = $this->formatDate($dates[0]);
 
       // End either empty or valid extended interval values (5.2.3.)
-      if (empty($end)) {
+      if (count($dates) < 2) {
         $element[$delta] = ['#markup' => $formatted_begin];
       }
-      elseif ($end === 'unknown' || $end === 'open') {
+      elseif ($dates[1] === 'unknown' || $dates[1] === 'open') {
         $element[$delta] = [
           '#markup' => t('@begin to @end', [
             '@begin' => $formatted_begin,
-            '@end' => $end,
+            '@end' => $dates[1],
           ]),
         ];
       }
       else {
-        $formatted_end = $this->formatDate($end);
+        $formatted_end = $this->formatDate($dates[1]);
         $element[$delta] = [
           '#markup' => t('@begin to @end', [
             '@begin' => $formatted_begin,

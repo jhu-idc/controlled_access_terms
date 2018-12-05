@@ -3,6 +3,7 @@
 namespace Drupal\controlled_access_terms;
 
 use Drupal\rdf\CommonDataConverter;
+use Datetime;
 
 /**
  * {@inheritdoc}
@@ -44,36 +45,54 @@ class EDTFConverter extends CommonDataConverter {
   ];
 
   /**
-   * Converts an EDTF text field into an ISO 8601 timestamp string.
-   *
-   * It assumes the earliest valid date for approximations and intervals.
-   *
-   * @param array $data
-   *   The array containing the 'value' element.
-   *
-   * @return string
-   *   Returns the ISO 8601 timestamp.
+   * Converts EDTF values into ISO values.
    */
-  public static function dateIso8601Value(array $data) {
-    $date = explode('/', $data['value'])[0];
+  public static function dateIso8601Value(string $edtf, bool $latest = FALSE) {
+    $dates = explode('/', $edtf);
+    $date = ($latest) ? end($dates) : $dates[0];
 
     // Strip approximations/uncertainty.
     $date = str_replace(['?', '~'], '', $date);
 
+    $date_parts = explode('-', $date, 3);
+
     // Replace unspecified.
-    // Month/day.
-    $date = str_replace('-uu', '-01', $date);
-    // Zero-Year in decade/century.
-    $date = str_replace('u', '0', $date);
+    if ($latest) {
+      // Zero-Year in decade/century.
+      $date_parts[0] = str_replace('u', '9', $date_parts[0]);
+      // Month.
+      if (count($date_parts) > 1) {
+        $date_parts[1] = str_replace('uu', '12', $date_parts[1]);
+      }
+      // Day (find first day then have DateTime give us the last day.)
+      if (count($date_parts) > 2) {
+        $date_parts[2] = str_replace('uu', '01', $date_parts[2]);
+      }
+      $d = new DateTime(implode('-', $date_parts));
+      $date_parts = explode('-', $d->format('Y-m-t'), 3);
+
+    }
+    else {
+      // Zero-Year in decade/century.
+      $date_parts[0] = str_replace('u', '0', $date_parts[0]);
+
+      // Month.
+      if (count($date_parts) > 1) {
+        $date_parts[1] = str_replace('uu', '01', $date_parts[1]);
+      }
+
+      // Day.
+      if (count($date_parts) > 2) {
+        $date_parts[2] = str_replace('uu', '01', $date_parts[2]);
+      }
+    }
 
     // Seasons map.
-    list($year, $month, $day) = explode('-', $date, 3);
-    // Digit Seasons.
-    if (in_array($month, ['21', '22', '23', '24'])) {
+    if (in_array($date_parts[1], ['21', '22', '23', '24'])) {
       // TODO: Make hemisphere seasons configurable.
       $season_mapping = $seasonMapNorth;
-      $month = $season_mapping[$month];
-      $date = implode('-', array_filter([$year, $month, $day]));
+      $date_parts[1] = $season_mapping[$month];
+      $date = implode('-', $date_parts);
     }
 
     return $date;
