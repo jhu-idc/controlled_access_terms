@@ -14,4 +14,5 @@ dependencies:
   - rdf
   - text
   - user
+  - datetime_range
 package: 'Controlled Access Terms'
