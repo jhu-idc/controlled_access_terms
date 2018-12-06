@@ -28,7 +28,7 @@ class EDTFComputed extends TypedData {
       return NULL;
     }
     $latest = $this->definition->getSetting('latest');
-    $this->processed = EDTFConverter::dateIso8601Value($edtf, $latest);
+    $this->processed = EDTFConverter::iso8601Value($edtf, $latest);
     return $this->processed;
   }
 

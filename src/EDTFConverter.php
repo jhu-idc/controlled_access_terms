@@ -45,9 +45,24 @@ class EDTFConverter extends CommonDataConverter {
   ];
 
   /**
+   * Converts an EDTF text field into an ISO 8601 timestamp string.
+   *
+   * It assumes the earliest valid date for approximations and intervals.
+   *
+   * @param array $data
+   *   The array containing the 'value' element.
+   *
+   * @return string
+   *   Returns the ISO 8601 timestamp.
+   */
+  public static function dateIso8601Value($data) {
+    return(iso8601Value($data['value']));
+  }
+
+  /**
    * Converts EDTF values into ISO values.
    */
-  public static function dateIso8601Value(string $edtf, bool $latest = FALSE) {
+  public static function iso8601Value(string $edtf, bool $latest = FALSE) {
     $dates = explode('/', $edtf);
     $date = ($latest) ? end($dates) : $dates[0];
 
@@ -63,39 +78,44 @@ class EDTFConverter extends CommonDataConverter {
       // Month.
       if (count($date_parts) > 1) {
         $date_parts[1] = str_replace('uu', '12', $date_parts[1]);
+      } else {
+        $date_parts[1] = '12';
       }
-      // Day (find first day then have DateTime give us the last day.)
-      if (count($date_parts) > 2) {
-        $date_parts[2] = str_replace('uu', '01', $date_parts[2]);
+      // Day
+      if ((count($date_parts) < 3) || (strpos($date_parts[2], 'u') !== false) ) {
+        // Day either missing or unspecified, set first so DateTime
+        // can give us the last.
+        $date_parts[2] = '01';
+        $d = new DateTime(implode('-', $date_parts));
+        $date_parts = explode('-', $d->format('Y-m-t'), 3);
       }
-      $d = new DateTime(implode('-', $date_parts));
-      $date_parts = explode('-', $d->format('Y-m-t'), 3);
-
-    }
-    else {
+    } else {
       // Zero-Year in decade/century.
       $date_parts[0] = str_replace('u', '0', $date_parts[0]);
 
       // Month.
       if (count($date_parts) > 1) {
         $date_parts[1] = str_replace('uu', '01', $date_parts[1]);
+      } else {
+        $date_parts[1] = '01';
       }
 
       // Day.
       if (count($date_parts) > 2) {
         $date_parts[2] = str_replace('uu', '01', $date_parts[2]);
+      } else {
+        $date_parts[2] = '01';
       }
     }
 
     // Seasons map.
-    if (in_array($date_parts[1], ['21', '22', '23', '24'])) {
+    if ( (count($date_parts) > 1) && (in_array($date_parts[1], ['21', '22', '23', '24']))) {
       // TODO: Make hemisphere seasons configurable.
       $season_mapping = $seasonMapNorth;
       $date_parts[1] = $season_mapping[$month];
-      $date = implode('-', $date_parts);
     }
 
-    return $date;
+    return implode('-', $date_parts);
 
   }
 
