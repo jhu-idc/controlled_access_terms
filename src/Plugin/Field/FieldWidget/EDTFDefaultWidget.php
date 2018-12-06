@@ -156,7 +156,9 @@ class EDTFDefaultWidget extends WidgetBase {
    */
   protected function dateValidation($datetime_str) {
 
-    list($date, $time) = explode('T', $datetime_str);
+    $date_time = explode('T', $datetime_str);
+    $date = $date_time[0];
+    $time = (count($date_time) > 1) ? $date_time[1] : '';
 
     $date = trim($date);
     $extended_year = (strpos($date, 'y') === 0 ? TRUE : FALSE);
@@ -172,7 +174,24 @@ class EDTFDefaultWidget extends WidgetBase {
     $date = ltrim($date, 'y-');
 
     // Now to check the parts.
-    list($year, $month, $day) = explode('-', $date, 3);
+    $date_parts = explode('-', $date, 3);
+    switch (count($date_parts)) {
+      case 1:
+        $year = $date_parts[0];
+        $month = '';
+        $day = '';
+        break;
+      case 2:
+        $year = $date_parts[0];
+        $month = $date_parts[1];
+        $day = '';
+        break;
+      case 3:
+        $year = $date_parts[0];
+        $month = $date_parts[1];
+        $day = $date_parts[2];
+        break;
+    }
 
     // Year.
     if (!preg_match('/^\d\d(\d\d|\du|uu)$/', $year) && !$extended_year) {

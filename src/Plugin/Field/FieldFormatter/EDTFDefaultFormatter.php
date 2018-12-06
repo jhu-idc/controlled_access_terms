@@ -242,25 +242,25 @@ class EDTFDefaultFormatter extends FormatterBase {
     }
     $cleaned_datetime = str_replace(['?', '~'], '', $cleaned_datetime);
 
-    list($year, $month, $day) = explode('-', $cleaned_datetime, 3);
+    $date_parts = explode('-', $cleaned_datetime, 3);
 
     // Which unspecified, if any?
     $which_unspecified = '';
-    if (!(strpos($year, 'uu') === FALSE)) {
+    if (!(strpos($date_parts[0], 'uu') === FALSE)) {
       $which_unspecified = t('decade');
     }
-    if (!(strpos($year, 'u') === FALSE)) {
+    if (!(strpos($date_parts[0], 'u') === FALSE)) {
       $which_unspecified = t('year');
     }
-    if (!(strpos($month, 'u') === FALSE)) {
+    if ( (count($date_parts) > 1 ) && !(strpos($date_parts[1], 'u') === FALSE)) {
       $which_unspecified = t('month');
       // No partial months.
-      $month = '';
+      $date_parts[1] = '';
     }
-    if (!(strpos($day, 'u') === FALSE)) {
+    if ( (count($date_parts) > 2 ) && !(strpos($date_parts[2], 'u') === FALSE)) {
       $which_unspecified = t('day');
       // No partial days.
-      $day = '';
+      $date_parts[2] = '';
     }
     // Add unspecified formatting if needed.
     if (!empty($which_unspecified)) {
@@ -268,48 +268,52 @@ class EDTFDefaultFormatter extends FormatterBase {
     }
 
     // Clean-up unspecified year/decade.
-    if (!(strpos($year, 'u') === FALSE)) {
-      $year = str_replace('u', '0', $year);
-      $year = t("the @year's", ['@year' => $year]);
+    if (!(strpos($date_parts[0], 'u') === FALSE)) {
+      $date_parts[0] = str_replace('u', '0', $date_parts[0]);
+      $date_parts[0] = t("the @year's", ['@year' => $date_parts[0]]);
     }
 
     // Format the month.
-    if (!empty($month)) {
+    if (!empty($date_parts[1])) {
       // IF 'mm', do nothing, it is already in this format.
       if ($settings['month_format'] === 'mmm' || $settings['month_format'] === 'mmmm') {
-        $month = $this->MONTHS[$month][$settings['month_format']];
+        $month = $this->MONTHS[$date_parts[1]][$settings['month_format']];
       }
       // Digit Seasons.
-      elseif (in_array($month, ['21', '22', '23', '24'])) {
+      elseif (in_array($date_parts[1], ['21', '22', '23', '24'])) {
         $season_mapping = ($settings['season_hemisphere'] === 'north' ? $this->seasonMapNorth : $this->seasonMapSouth);
-        $month = $season_mapping[$month];
+        $month = $season_mapping[$date_parts[1]];
       }
 
       if ($settings['month_format'] === 'm') {
-        $month = ltrim($month, ' 0');
+        $date_parts[1] = ltrim($date_parts[1], ' 0');
       }
+    } else {
+      $date_parts[1] = '';
     }
 
     // Format the day.
-    if (!empty($day)) {
+    if (!empty($date_parts[2])) {
       if ($settings['day_format'] === 'd') {
-        $day = ltrim($day, ' 0');
+        $date_parts[2] = ltrim($date_parts[2], ' 0');
       }
+    } else {
+      $date_parts[2] = '';
     }
 
     // Put the parts back together
     // Big Endian by default.
-    $parts_in_order = [$year, $month, $day];
+    $parts_in_order = [$date_parts[0], $date_parts[1], $date_parts[2]];
 
     if ($settings['date_order'] === 'little_endian') {
-      $parts_in_order = [$day, $month, $year];
+      $parts_in_order = [$date_parts[2], $date_parts[1], $date_parts[0]];
     }
     elseif ($settings['date_order'] === 'middle_endian') {
-      $parts_in_order = [$month, $day, $year];
+      $parts_in_order = [$date_parts[1], $date_parts[2], $date_parts[0]];
     } // Big Endian by default
 
-    if ($settings['date_order'] === 'middle_endian' && !preg_match('/\d/', $month) && !empty(array_filter([$month, $day]))) {
-      $cleaned_datetime = "$month $day, $year";
+    if ($settings['date_order'] === 'middle_endian' && !preg_match('/\d/', $date_parts[1]) && !empty(array_filter([$date_parts[1], $date_parts[2]]))) {
+      $cleaned_datetime = "$date_parts[1] $date_parts[2], $date_parts[0]";
     }
     else {
       $cleaned_datetime = implode($this->DELIMITERS[$settings['date_separator']], array_filter($parts_in_order));
