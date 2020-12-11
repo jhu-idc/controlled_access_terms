@@ -1,5 +1,5 @@
 {
-  "name": "islandora/controlled_access_terms",
+  "name": "jhu-idc/controlled_access_terms",
   "description": "Drupal module for subjects and agents",
   "type": "drupal-module",
   "keywords": ["Drupal", "Islandora"],
