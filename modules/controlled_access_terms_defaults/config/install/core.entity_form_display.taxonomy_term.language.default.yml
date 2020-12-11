@@ -1,3 +1,4 @@
+uuid: c420d2ad-98e6-4842-9239-2472dec8364d
 langcode: en
 status: true
 dependencies:
@@ -8,18 +9,20 @@ dependencies:
     - controlled_access_terms
     - path
     - text
+_core:
+  default_config_hash: iqAqgcX3SCxSFmYpuFfwx0EvGb1eaSWpBSKwyBBhkTU
 id: taxonomy_term.language.default
 targetEntityType: taxonomy_term
 bundle: language
 mode: default
 content:
   description:
-    type: text_textfield
+    type: text_textarea
     weight: 0
     region: content
     settings:
-      size: 60
       placeholder: ''
+      rows: 5
     third_party_settings: {  }
   field_authority_link:
     weight: 31
@@ -31,7 +34,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 99
     region: content
     settings:
       include_locked: true
@@ -46,7 +49,19 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 97
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+  translation:
+    weight: 98
     region: content
     settings: {  }
     third_party_settings: {  }

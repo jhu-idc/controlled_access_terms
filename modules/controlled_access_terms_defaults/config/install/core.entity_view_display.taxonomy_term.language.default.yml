@@ -1,3 +1,4 @@
+uuid: 92d498fb-0aa5-4898-924f-c487aba68e20
 langcode: en
 status: true
 dependencies:
@@ -7,6 +8,8 @@ dependencies:
   module:
     - controlled_access_terms
     - text
+_core:
+  default_config_hash: Xw8AzsLqoqKzBBPcxUQaM73ycgnDOUMGwjATsch7Xx4
 id: taxonomy_term.language.default
 targetEntityType: taxonomy_term
 bundle: language
@@ -18,6 +21,18 @@ content:
     weight: 0
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_authority_link:
+    type: authority_formatter_default
+    weight: 0
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: _blank
     third_party_settings: {  }
   field_authority_sources:
     weight: 1
@@ -33,3 +48,4 @@ content:
     region: content
 hidden:
   langcode: true
+  search_api_excerpt: true

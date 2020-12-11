@@ -1,9 +1,16 @@
+uuid: 85b8eae4-f392-4ef8-92b5-8269742a9373
 langcode: en
 status: true
 dependencies:
   module:
     - controlled_access_terms
+    - field_permissions
     - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: X-F2wZtHnhZOzc7xL38Rw-dzhZYMi4SQz2KcD77kXD4
 id: taxonomy_term.field_relationships
 field_name: field_relationships
 entity_type: taxonomy_term

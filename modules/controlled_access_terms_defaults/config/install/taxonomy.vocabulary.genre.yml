@@ -1,8 +1,10 @@
+uuid: b38f9ba6-c3cd-42e0-9b47-b5f9abfecba3
 langcode: en
 status: true
 dependencies: {  }
-name: Genre
+_core:
+  default_config_hash: GtwZmHfoUe9zdJe_uX6oD5CU40m-0jfjiDk5USbdHMc
+name: Genre/Form
 vid: genre
-description: 'A term or terms that designate a category characterizing a particular style, form, or content, such as artistic, musical, literary composition, etc.'
+description: 'Genre/form terms describe what an item is, not what it is about. Form is defined as a characteristic of works with a particular '
 weight: 0
-

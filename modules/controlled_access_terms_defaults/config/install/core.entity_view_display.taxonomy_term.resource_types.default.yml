@@ -1,3 +1,4 @@
+uuid: a42b912d-449e-4cdf-9c2f-87a07fa853b2
 langcode: en
 status: true
 dependencies:
@@ -6,8 +7,9 @@ dependencies:
     - taxonomy.vocabulary.resource_types
   module:
     - controlled_access_terms
-    - link
     - text
+_core:
+  default_config_hash: W82-1KTjwwd5e98Euc8TFmDyiBrEnKMhpUlbDE_lFJc
 id: taxonomy_term.resource_types.default
 targetEntityType: taxonomy_term
 bundle: resource_types
@@ -30,7 +32,8 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    type: authority_formatter_default
     region: content
 hidden:
   langcode: true
+  search_api_excerpt: true

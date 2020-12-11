@@ -1,3 +1,4 @@
+uuid: 33e9526e-7bc5-4e4c-8919-8bd8c0ed7231
 langcode: en
 status: true
 dependencies:
@@ -6,9 +7,9 @@ dependencies:
     - taxonomy.vocabulary.resource_types
   module:
     - controlled_access_terms
-    - link
-    - path
     - text
+_core:
+  default_config_hash: Osl9c_Yf9MjIGTvFaf1MgaLn7-g6shLhCPymeG2iKt8
 id: taxonomy_term.resource_types.default
 targetEntityType: taxonomy_term
 bundle: resource_types
@@ -28,15 +29,8 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
+    type: authority_link_default
     region: content
-  langcode:
-    type: language_select
-    weight: 3
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -45,15 +39,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 5
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
     region: content
-    settings: {  }
     third_party_settings: {  }
-  translation:
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
+  path: true
+  translation: true

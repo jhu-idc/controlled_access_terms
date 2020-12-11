@@ -1,3 +1,4 @@
+uuid: f2bde897-be54-48b1-9433-859cd124f7e4
 langcode: en
 status: true
 dependencies:
@@ -6,12 +7,14 @@ dependencies:
     - taxonomy.vocabulary.family
   module:
     - controlled_access_terms
+_core:
+  default_config_hash: AklN9ESCoxU6aDQgaMMhKCsAsVr78Caj-yUXW5UJlAI
 id: taxonomy_term.family.field_authority_link
 field_name: field_authority_link
 entity_type: taxonomy_term
 bundle: family
 label: 'Authority Sources'
-description: ''
+description: "Select the authority source that contains the selected family term.\r\n\r\nFor URL: Enter the stable URI or URL that represents the selected family."
 required: false
 translatable: true
 default_value: {  }
@@ -20,7 +23,6 @@ settings:
   authority_sources:
     naf: 'NACO Authority File'
     viaf: 'Virtual International Authority File'
-    wiki: 'Wikidata'
     other: Other
   title: 1
   link_type: 16
