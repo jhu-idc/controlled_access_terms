@@ -9,7 +9,7 @@ id: taxonomy_term.family
 targetEntityType: taxonomy_term
 bundle: family
 types:
-  - 'schema:Organization'
+  - 'schema:Thing'
 fieldMappings:
   name:
     properties:
@@ -20,12 +20,15 @@ fieldMappings:
   field_authority_link:
     properties:
       - 'schema:sameAs'
-  field_cat_date_end:
+  field_date:
     properties:
-      - 'schema:dissolutionDate'
-  field_cat_date_begin:
+      - 'dcterms:date'
+  field_family_name:
     properties:
-      - 'schema:foundingDate'
+      - 'schema:familyName'
+  field_relationships:
+    properties:
+    mapping_type: rel
   changed:
     properties:
       - 'schema:dateModified'
