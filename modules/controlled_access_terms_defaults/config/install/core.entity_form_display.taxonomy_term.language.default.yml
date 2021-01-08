@@ -1,16 +1,14 @@
-uuid: c420d2ad-98e6-4842-9239-2472dec8364d
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.taxonomy_term.language.field_authority_link
+    - field.field.taxonomy_term.language.field_language_code
     - taxonomy.vocabulary.language
   module:
     - controlled_access_terms
     - path
     - text
-_core:
-  default_config_hash: iqAqgcX3SCxSFmYpuFfwx0EvGb1eaSWpBSKwyBBhkTU
 id: taxonomy_term.language.default
 targetEntityType: taxonomy_term
 bundle: language
@@ -18,30 +16,38 @@ mode: default
 content:
   description:
     type: text_textarea
-    weight: 0
+    weight: 2
     region: content
     settings:
       placeholder: ''
       rows: 5
     third_party_settings: {  }
   field_authority_link:
-    weight: 31
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: authority_link_default
     region: content
+  field_language_code:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   langcode:
     type: language_select
-    weight: 99
+    weight: 6
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -49,7 +55,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 97
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -57,11 +63,11 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 100
+    weight: 7
     region: content
     third_party_settings: {  }
   translation:
-    weight: 98
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
