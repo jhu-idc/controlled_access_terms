@@ -91,42 +91,6 @@ function controlled_access_terms_jsonld_alter_normalized_array(EntityInterface $
             }
           }
         }
-        elseif ($field_definition->getType() == 'reference_value_pair') {
-
-          foreach ($context['current_entity_rdf_mapping']->get('fieldMappings')[$field]['properties'] as $predicate) {
-              foreach ($entity->get($field)->getValue() as $value) {
-                if (empty($value['target_id'])) {
-                  \Drupal::logger('controlled_access_terms')->warning("Missing target entity for %field in %entity_type/%id (%bundle)",
-                  [
-                    '%field' => $field,
-                    '%entity_type' => $entity->getEntityTypeId(),
-                    '%bundle' => $entity->bundle(),
-                    '%id' => $entity->id(),
-                  ]);
-                  continue;
-                }
-                $string_value = \Drupal::entityTypeManager()->getStorage($field_definition->getSetting('target_type'))->load($value['value']);
-                $referenced_entity = \Drupal::entityTypeManager()->getStorage($field_definition->getSetting('target_type'))->load($value['target_id']);
-                if (empty($referenced_entity)) {
-                  \Drupal::logger('controlled_access_terms')->warning("Invalid target entity for %field in %entity_type/%id (%bundle)",
-                  [
-                    '%field' => $field,
-                    '%entity_type' => $entity->getEntityTypeId(),
-                    '%bundle' => $entity->bundle(),
-                    '%id' => $entity->id(),
-                  ]);
-                  continue;
-                }
-                // We are assuming the first graph is the one corresponding
-                // to the node/taxonomy_term we are modifying.
-                $normalized['@graph'][0][$predicate][] = [
-                    // TODO -this should probably not be '@id'
-                    // also pull from referenced_entity a language string to use. 
-                  '@id' => $referenced_entity->toUrl('canonical', ['absolute' => TRUE])->setRouteParameter('_format', 'jsonld')->toString(),
-                ];
-            }
-          }
-        }
       }
     }
   }
