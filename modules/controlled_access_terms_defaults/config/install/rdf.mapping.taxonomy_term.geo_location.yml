@@ -18,14 +18,15 @@ fieldMappings:
   description:
     properties:
       - 'schema:description'
+  field_geo_alt_name:
+    properties: 
+      - 'schema:alternativeName'
   field_authority_link:
     properties:
       - 'schema:sameAs'
-  field_geo_geolocation:
+  field_broader:
     properties:
-      - 'wgs84_pos:lat_long'
-  field_geo_broader:
-    properties:
+      - 'skos:broader'
       - 'schema:containedInPlace'
   changed:
     properties:

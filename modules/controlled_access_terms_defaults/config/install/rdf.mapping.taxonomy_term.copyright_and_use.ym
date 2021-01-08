@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.corporate_body
+    - taxonomy.vocabulary.copyright_and_use
   module:
     - taxonomy
-id: taxonomy_term.corporate_body
+id: taxonomy_term.copyright_and_use
 targetEntityType: taxonomy_term
-bundle: corporate_body
+bundle: copyright_and_use
 types:
-  - 'schema:Organization'
+  - 'schema:Thing'
 fieldMappings:
   name:
     properties:
@@ -17,15 +17,9 @@ fieldMappings:
   description:
     properties:
       - 'schema:description'
-  field_date:
-    properties:
-      - 'dcterms:date'
   field_authority_link:
     properties:
       - 'schema:sameAs'
-  field_relationships:
-    properties:
-    mapping_type: rel
   changed:
     properties:
       - 'schema:dateModified'

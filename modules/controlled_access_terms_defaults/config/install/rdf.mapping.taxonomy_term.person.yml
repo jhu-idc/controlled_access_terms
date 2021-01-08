@@ -17,21 +17,15 @@ fieldMappings:
   description:
     properties:
       - 'schema:description'
-  field_alternate_name:
-    properties:
-      - 'schema:alternateName'
-  field_person_alternate_names:
-    properties:
-      - 'schema:alternateName'
   field_authority_link:
     properties:
       - 'schema:sameAs'
-  field_cat_date_begin:
+  field_date:
     properties:
-      - 'schema:birthDate'
-  field_cat_date_end:
+      - 'dcterms:date'
+  field_relationships:
     properties:
-      - 'schema:deathDate'
+    mapping_type: rel 
   changed:
     properties:
       - 'schema:dateModified'
