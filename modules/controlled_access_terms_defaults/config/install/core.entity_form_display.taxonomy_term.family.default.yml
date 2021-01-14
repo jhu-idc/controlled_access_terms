@@ -1,4 +1,3 @@
-uuid: ccf53251-dd04-4e79-8fe2-a4b2e42985e6
 langcode: en
 status: true
 dependencies:
@@ -12,8 +11,6 @@ dependencies:
   module:
     - controlled_access_terms
     - text
-_core:
-  default_config_hash: BjyADh-LMRM2m1r1SnzCIMX7METfRii5LLfuf8vGb-o
 id: taxonomy_term.family.default
 targetEntityType: taxonomy_term
 bundle: family
@@ -36,12 +33,13 @@ content:
     type: authority_link_default
     region: content
   field_date:
-    weight: 4
+    weight: 101
     settings:
-      size: 60
-      placeholder: ''
+      strict_dates: false
+      intervals: true
+      sets: false
     third_party_settings: {  }
-    type: string_textfield
+    type: edtf_default
     region: content
   field_family_name:
     weight: 1

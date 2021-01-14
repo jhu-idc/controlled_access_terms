@@ -23,6 +23,8 @@ fieldMappings:
   field_date:
     properties:
       - 'dcterms:date'
+    datatype_callback:
+      callable: 'Drupal\rdf\CommonDataConverter::dateIso8601Value'
   field_family_name:
     properties:
       - 'schema:familyName'
