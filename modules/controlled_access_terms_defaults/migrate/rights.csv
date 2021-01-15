@@ -1,0 +1,12 @@
+uid,vid,weight,name,description,authority_link
+1,access_rights,0,"Public digital access","",""
+2,access_rights,1,"Restricted digital access: Deed of gift imposed","",""
+3,access_rights,2,"Restricted digital access: Institutional policy","",""
+4,access_rights,3,"Restricted digital access: Other","",""
+5,access_rights,4,"Restricted digital access: In process","",""
+6,copyright_and_use,0,"No Copyright – United States","",rightsstatements;http://rightsstatements.org/vocab/NoC-US/1.0/
+7,copyright_and_use,1,"Not Evaluated","",rightsstatement;http://rightsstatements.org/vocab/CNE/1.0/
+8,copyright_and_use,2,"Copyright Undetermined","",rightsstatements;http://rightsstatements.org/vocab/UND/1.0/
+9,copyright_and_use,3,"No Known Copyright","",rightsstatements;http://rightsstatements.org/vocab/NKC/1.0/
+10,copyright_and_use,4,"In Copyright","",rightsstatements;http://rightsstatements.org/vocab/InC/1.0/
+~
