@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.corporate_body.field_authority_link
-    - field.field.taxonomy_term.corporate_body.field_corporate_body_alt_n
+    - field.field.taxonomy_term.corporate_body.field_corporate_body_alt_name
     - field.field.taxonomy_term.corporate_body.field_date
     - field.field.taxonomy_term.corporate_body.field_date_of_meeting_or_treaty
     - field.field.taxonomy_term.corporate_body.field_location_of_meeting
@@ -72,7 +72,7 @@ content:
     third_party_settings: {  }
     type: authority_formatter_default
     region: content
-  field_corporate_body_alt_n:
+  field_corporate_body_alt_name:
     weight: 22
     label: above
     settings:
