@@ -119,14 +119,14 @@ class EDTFFormatter extends FormatterBase {
         list($begin, $end) = explode('/', $item->value);
 
         if (empty($begin) || $begin === '..') {
-          $formatted_begin = "open start";
+          $formatted_begin = "unknown";
         }
         else {
           $formatted_begin = $this->formatDate($begin);
         }
 
         if (empty($end) || $end === '..') {
-          $formatted_end = "open end";
+          $formatted_end = "unknown";
         }
         else {
           $formatted_end = $this->formatDate($end);
@@ -435,8 +435,9 @@ class EDTFFormatter extends FormatterBase {
       switch (count($keys)) {
         case 1:
         case 2:
-          $qualifier_parts[] = implode(' ' . t('and') . ' ', $keys) . ' ' . $qualifier;
-          break;
+          // bseeger change.  We don't want the keys spelled out
+          //$qualifier_parts[] = implode(' ' . t('and') . ' ', $keys) . ' ' . $qualifier;
+          //break;
 
         case 3:
           $qualifier_parts[] = $qualifier;

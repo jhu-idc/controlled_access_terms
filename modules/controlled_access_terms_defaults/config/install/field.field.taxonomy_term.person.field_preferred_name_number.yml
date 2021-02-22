@@ -1,4 +1,3 @@
-uuid: de2c941a-564f-4e3b-b070-8c00361d1aba
 langcode: en
 status: true
 dependencies:
@@ -10,7 +9,7 @@ field_name: field_preferred_name_number
 entity_type: taxonomy_term
 bundle: person
 label: 'Person Preferred Name: Number'
-description: 'A number, sometimes with a term, that qualifies the name. Often a roman numeral or a roman numeral and a subsequent part of a forename. Corresponds to the $b subfield in MARC.'
+description: 'A number, sometimes with a term, that qualifies the name. Often a roman numeral or a roman numeral and a subsequent part of a forename. Corresponds to the 100 $b subfield in MARC.'
 required: false
 translatable: false
 default_value: {  }

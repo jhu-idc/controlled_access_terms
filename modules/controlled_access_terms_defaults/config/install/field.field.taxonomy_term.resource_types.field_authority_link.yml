@@ -1,4 +1,3 @@
-uuid: a0a7227c-491a-41d7-b774-c178823c94b7
 langcode: en
 status: true
 dependencies:
@@ -8,13 +7,12 @@ dependencies:
   module:
     - controlled_access_terms
 _core:
-  default_config_hash: fFgIbbfq71u98DtB8bkd9HOnh8b_Kzy_-tJV8jtpiCE
 id: taxonomy_term.resource_types.field_authority_link
 field_name: field_authority_link
 entity_type: taxonomy_term
 bundle: resource_types
 label: 'Authority Sources'
-description: 'Select the authority source that contains the selected type.'
+description: "Select the authority source that contains the selected type.\r\n\r\nSource information: <a href=\"https://www.dublincore.org/specifications/dublin-core/dcmi-terms/\" target=\"_blank\">DCMI Type Vocabulary</a>"
 required: false
 translatable: true
 default_value: {  }

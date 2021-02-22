@@ -1,9 +1,7 @@
-uuid: d824f621-d99f-4ffd-b1dc-b46ef0f5c480
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: tcyfAGtPfozbmd4cDt41tx83H_y01kzvHdFTD9CXHZk
 name: 'Resource Types'
 vid: resource_types
 description: 'Term(s) that broadly characterize(s) the content of the resource, regardless of its original or digital manifestation.'

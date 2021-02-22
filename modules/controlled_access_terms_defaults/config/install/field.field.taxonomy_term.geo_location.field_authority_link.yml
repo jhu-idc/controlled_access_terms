@@ -1,4 +1,3 @@
-uuid: 285a7255-1457-4f40-b945-7e1b88f3d22f
 langcode: en
 status: true
 dependencies:
@@ -8,13 +7,12 @@ dependencies:
   module:
     - controlled_access_terms
 _core:
-  default_config_hash: XUFzv8sw4FtTc9aJ-fqQkCkZdD0vbQwg6tu5b30sPZI
 id: taxonomy_term.geo_location.field_authority_link
 field_name: field_authority_link
 entity_type: taxonomy_term
 bundle: geo_location
 label: 'Authority Link'
-description: "Select the authority source that contains the selected geographic location.\r\n\r\nFor URL: please enter the stable URI or URL that represents the selected geographic location. Examples: http://id.worldcat.org/fast/1204292, http://www.geonames.org/4347778"
+description: "Select the authority source that contains the selected geographic location.\r\n\r\nFor URL: please enter the stable URI or URL that represents the selected geographic location. Examples: http://id.worldcat.org/fast/1204292, http://www.geonames.org/4347778. \r\n\r\nSource information: <a href=\"https://www.geonames.org/\" target=\"_blank\">GeoNames</a>, <a href=\"http://fast.oclc.org/searchfast/\" target=\"_blank\">Faceted Application of Subject Terminology (FAST)</a>"
 required: false
 translatable: true
 default_value: {  }

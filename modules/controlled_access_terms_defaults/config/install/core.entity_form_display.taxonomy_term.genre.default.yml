@@ -1,4 +1,3 @@
-uuid: 5a83af5f-b22a-42fb-aebc-751bb67a4873
 langcode: en
 status: true
 dependencies:
@@ -9,7 +8,6 @@ dependencies:
     - controlled_access_terms
     - text
 _core:
-  default_config_hash: pJLsORJM1PBxpJwDH1jmPE2qHSVwWnRSG_lRdJhjYHQ
 id: taxonomy_term.genre.default
 targetEntityType: taxonomy_term
 bundle: genre

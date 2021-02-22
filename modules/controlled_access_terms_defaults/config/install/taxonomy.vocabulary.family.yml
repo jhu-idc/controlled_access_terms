@@ -1,9 +1,7 @@
-uuid: 3de7add9-4c86-47fe-babf-d0dd0303fb57
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: qvIxu5RfXdaq6t-KKeKlEKj18LAQCISdXIBGhJfs8sI
 name: Family
 vid: family
 description: 'Multiple persons related by birth, marriage, adoption, civil union, similar legal status, or who present themselves as a family.'

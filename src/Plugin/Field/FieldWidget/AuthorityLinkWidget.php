@@ -57,14 +57,18 @@ class AuthorityLinkWidget extends LinkWidget {
       '#maxlength' => 2048,
       '#required' => $element['#required'],
     ];
-    $element['title'] = [
+    /* Removed by bseeger, metadata folks requested to not have this field
+     * and this was the easiest way to get rid of it. 
+     * We could make it an option on the FieldWidget page, but maybe down the
+     * road
+     $element['title'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Alternate link text'),
       '#placeholder' => $this->getSetting('placeholder_title'),
       '#default_value' => isset($items[$delta]->title) ? $items[$delta]->title : NULL,
       '#maxlength' => 255,
       '#description' => t('Text to use in place of the authority source name.'),
-    ];
+    ]; */
 
     return $element;
   }

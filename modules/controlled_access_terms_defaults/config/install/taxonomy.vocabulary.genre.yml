@@ -1,9 +1,7 @@
-uuid: b38f9ba6-c3cd-42e0-9b47-b5f9abfecba3
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: GtwZmHfoUe9zdJe_uX6oD5CU40m-0jfjiDk5USbdHMc
 name: Genre/Form
 vid: genre
 description: 'Genre/form terms describe the format or artistic category of the resource, not the subject of its contents.'

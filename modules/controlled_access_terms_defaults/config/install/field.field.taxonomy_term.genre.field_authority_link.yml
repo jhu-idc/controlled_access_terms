@@ -6,12 +6,13 @@ dependencies:
     - taxonomy.vocabulary.genre
   module:
     - controlled_access_terms
+_core:
 id: taxonomy_term.genre.field_authority_link
 field_name: field_authority_link
 entity_type: taxonomy_term
 bundle: genre
 label: 'Authority Sources'
-description: ''
+description: 'Source information: <a href="https://id.loc.gov/authorities/genreForms.html" target="_blank">Library of Congress Genre/Form Terms (LCGFT)</a>'
 required: false
 translatable: true
 default_value: {  }

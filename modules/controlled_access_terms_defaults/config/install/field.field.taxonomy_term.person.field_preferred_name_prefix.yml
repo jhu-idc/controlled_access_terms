@@ -1,4 +1,3 @@
-uuid: 1ef9f57b-9960-4f48-ab1e-e034e576c0d4
 langcode: en
 status: true
 dependencies:
@@ -10,7 +9,7 @@ field_name: field_preferred_name_prefix
 entity_type: taxonomy_term
 bundle: person
 label: 'Person Preferred Name: Prefix'
-description: 'Any term associated with a name that in normative use would precede the entire name. Found in the $c subfield in MARC.'
+description: 'Term(s) like prefixes and honorary titles that in normative use would precede the entire name. Found in the 100 $c subfield in MARC.'
 required: false
 translatable: false
 default_value: {  }

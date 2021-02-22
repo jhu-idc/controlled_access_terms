@@ -214,7 +214,7 @@ class EDTFUtils {
       $msgs[] = "Years longer than 4 digits must be prefixed with a 'Y'.";
     }
     elseif (strlen($parsed_date[self::YEAR_BASE]) < 4) {
-      $msgs[] = "Years must be at least 4 characters long.";
+      $msgs[] = "Years must be at least 4 digits long. For years between 0 and 1000 CE, pad with 0's to make 4 digits. Example: 700 becomes 0700";
     }
     $strict_pattern = 'Y';
 

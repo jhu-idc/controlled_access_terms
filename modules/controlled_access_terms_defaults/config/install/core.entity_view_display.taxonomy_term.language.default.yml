@@ -8,6 +8,7 @@ dependencies:
   module:
     - controlled_access_terms
     - text
+_core:
 id: taxonomy_term.language.default
 targetEntityType: taxonomy_term
 bundle: language

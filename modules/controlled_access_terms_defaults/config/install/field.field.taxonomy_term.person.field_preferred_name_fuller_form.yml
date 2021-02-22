@@ -1,4 +1,3 @@
-uuid: 12acec0e-305e-46b3-9219-f22e9d7a52d7
 langcode: en
 status: true
 dependencies:
@@ -10,7 +9,7 @@ field_name: field_preferred_name_fuller_form
 entity_type: taxonomy_term
 bundle: person
 label: 'Person Preferred Name: Fuller Form'
-description: 'The fuller form of first and middle names, when abbreviated in the Rest of Name field. Corresponds to the $q subfield in MARC.'
+description: 'The fuller form of first and middle names, when abbreviated in the Rest of Name field. Corresponds to the 100 $q subfield in MARC.'
 required: false
 translatable: false
 default_value: {  }
