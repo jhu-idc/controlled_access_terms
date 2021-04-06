@@ -7,7 +7,6 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
 id: taxonomy_term.field_geo_alt_name
 field_name: field_geo_alt_name
 entity_type: taxonomy_term

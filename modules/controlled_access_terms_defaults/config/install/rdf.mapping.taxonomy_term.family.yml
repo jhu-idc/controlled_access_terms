@@ -9,7 +9,7 @@ id: taxonomy_term.family
 targetEntityType: taxonomy_term
 bundle: family
 types:
-  - 'schema:Thing'
+  - 'schema:Organization'
 fieldMappings:
   name:
     properties:
@@ -20,17 +20,12 @@ fieldMappings:
   field_authority_link:
     properties:
       - 'schema:sameAs'
-  field_date:
+  field_cat_date_end:
     properties:
-      - 'dcterms:date'
-    datatype_callback:
-      callable: 'Drupal\rdf\CommonDataConverter::dateIso8601Value'
-  field_family_name:
+      - 'schema:dissolutionDate'
+  field_cat_date_begin:
     properties:
-      - 'schema:familyName'
-  field_relationships:
-    properties:
-    mapping_type: rel
+      - 'schema:foundingDate'
   changed:
     properties:
       - 'schema:dateModified'

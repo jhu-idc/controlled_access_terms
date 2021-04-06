@@ -6,7 +6,6 @@ dependencies:
     - taxonomy.vocabulary.corporate_body
   module:
     - options
-_core:
 id: taxonomy_term.corporate_body.field_type
 field_name: field_type
 entity_type: taxonomy_term

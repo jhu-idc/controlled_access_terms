@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: Genre/Form
 vid: genre
 description: 'Genre/form terms describe the format or artistic category of the resource, not the subject of its contents.'

@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: 'Islandora Models'
 vid: islandora_models
 description: 'Types of repository objects'

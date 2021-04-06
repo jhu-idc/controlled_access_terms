@@ -36,7 +36,6 @@ third_party_settings:
         classes: ''
         description: ''
       label: 'Person Preferred Name'
-_core:
 id: taxonomy_term.person.default
 targetEntityType: taxonomy_term
 bundle: person

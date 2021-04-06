@@ -17,17 +17,18 @@ fieldMappings:
   description:
     properties:
       - 'schema:description'
+  field_person_alternate_names:
+    properties:
+      - 'schema:alternateName'
   field_authority_link:
     properties:
       - 'schema:sameAs'
-  field_date:
+  field_cat_date_begin:
     properties:
-      - 'dcterms:date'
-    datatype_callback:
-      callable: 'Drupal\rdf\CommonDataConverter::dateIso8601Value'
-  field_relationships:
+      - 'schema:birthDate'
+  field_cat_date_end:
     properties:
-    mapping_type: rel 
+      - 'schema:deathDate'
   changed:
     properties:
       - 'schema:dateModified'

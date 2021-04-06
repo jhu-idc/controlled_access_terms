@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: Person
 vid: person
 description: 'An individual or an identity established by an individual, either alone or in collaboration with one or more other individuals.'

@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: Subject
 vid: subject
 description: 'A term or phrase that indicates what a work is about.'

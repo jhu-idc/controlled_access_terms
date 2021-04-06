@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: Language
 vid: language
 description: 'The system of written, spoken, or signed communication used in a resource.'

@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: Family
 vid: family
 description: 'Multiple persons related by birth, marriage, adoption, civil union, similar legal status, or who present themselves as a family.'

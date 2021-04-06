@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: 'Resource Types'
 vid: resource_types
 description: 'Term(s) that broadly characterize(s) the content of the resource, regardless of its original or digital manifestation.'

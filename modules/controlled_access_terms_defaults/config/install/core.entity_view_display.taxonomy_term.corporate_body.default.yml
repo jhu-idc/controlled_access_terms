@@ -47,7 +47,6 @@ third_party_settings:
         classes: ''
         description: ''
       label: 'Alt Corporate Name'
-_core:
 id: taxonomy_term.corporate_body.default
 targetEntityType: taxonomy_term
 bundle: corporate_body

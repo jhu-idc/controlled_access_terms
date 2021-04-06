@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: 'Islandora Media Use'
 vid: islandora_media_use
 description: 'Terms to define how a media object is to be used.'

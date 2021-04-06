@@ -1,8 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: 'Islandora Access'
 vid: islandora_access
-description: 'Terms used to limit, restrict or coordinate access'
+description: 'Terms used to limit, restrict or coordinate access among collections'
 weight: 1

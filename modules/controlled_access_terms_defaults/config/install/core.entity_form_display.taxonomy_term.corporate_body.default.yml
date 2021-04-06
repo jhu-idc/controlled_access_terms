@@ -36,7 +36,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Corporate Name'
-_core:
 id: taxonomy_term.corporate_body.default
 targetEntityType: taxonomy_term
 bundle: corporate_body
@@ -137,7 +136,7 @@ content:
     weight: 0
     region: content
     settings:
-      size: 60
+      size: 1024
       placeholder: ''
     third_party_settings: {  }
   status:

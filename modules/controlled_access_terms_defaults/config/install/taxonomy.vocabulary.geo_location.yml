@@ -1,7 +1,6 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
 name: 'Geographic Location'
 vid: geo_location
 description: 'Name(s) of a place by which a place is known.'

@@ -10,7 +10,6 @@ dependencies:
     - controlled_access_terms
     - link
     - text
-_core:
 id: taxonomy_term.geo_location.default
 targetEntityType: taxonomy_term
 bundle: geo_location

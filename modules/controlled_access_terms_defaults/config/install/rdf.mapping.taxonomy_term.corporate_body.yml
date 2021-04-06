@@ -17,17 +17,18 @@ fieldMappings:
   description:
     properties:
       - 'schema:description'
-  field_date:
+  field_corp_alt_name:
     properties:
-      - 'dcterms:date'
-    datatype_callback:
-      callable: 'Drupal\rdf\CommonDataConverter::dateIso8601Value'
+      - 'schema:alternateName'
+  field_cat_date_end:
+    properties:
+      - 'schema:dissolutionDate'
+  field_cat_date_begin:
+    properties:
+      - 'schema:foundingDate'
   field_authority_link:
     properties:
       - 'schema:sameAs'
-  field_relationships:
-    properties:
-    mapping_type: rel
   changed:
     properties:
       - 'schema:dateModified'
